@@ -1,0 +1,10 @@
+.invisible{
+    display: none;
+}
+
+.hasError{
+    background-color: yellow;
+}
+.errorMessage{
+    color: red;
+}

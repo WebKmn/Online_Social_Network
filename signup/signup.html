@@ -108,7 +108,7 @@
 
                 <div class="mb-3 form-group">
                     <label for="ddSequrityQuestion" class="form-label">Sequrity Question:</label>
-                    <select id="ddSequrityQuestion" name="ddSequrityQuestion" class="form-control custom-select">
+                    <select id="ddSequrityQuestion" name="ddSequrityQuestion" class="form-control custom-select" onchange="updateAnsView()">
                         <option></option>
                         <option>What city did you grow up in?</option>
                         <option>What high school did you attend?</option>
@@ -117,7 +117,7 @@
                     </select>
                 </div>
 
-                <div id="divAnswer" class="mb-3 form-group">
+                <div id="divAnswer" class="mb-3 form-group invisible">
                     <label for="txtAnswer" class="col-form-label">Sequrity Question Answer:</label>
                     <input type="text" class="form-control" id="txtAnswer" name="txtAnswer" required>
                 </div>
