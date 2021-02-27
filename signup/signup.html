@@ -17,6 +17,10 @@
                 <a class="navbar-brand" href="#">
                     <img src="images/logo2.jpg" alt="" width="30" height="24" class="d-inline-block align-top">
                 </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
@@ -108,7 +112,8 @@
 
                 <div class="mb-3 form-group">
                     <label for="ddSequrityQuestion" class="form-label">Sequrity Question:</label>
-                    <select id="ddSequrityQuestion" name="ddSequrityQuestion" class="form-control custom-select" onchange="updateAnsView()">
+                    <select id="ddSequrityQuestion" name="ddSequrityQuestion" class="form-control custom-select"
+                        onchange="updateAnsView()">
                         <option></option>
                         <option>What city did you grow up in?</option>
                         <option>What high school did you attend?</option>
@@ -140,53 +145,54 @@
 
     <footer class="container bg-light">
         <div class="row">
-          <div class="col-12 col-md">
-            <small class="d-block mb-3 text-muted">Copywright @2021-2031 Social Network</small>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Features</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="link-secondary" href="#">Cool stuff</a></li>
-              <li><a class="link-secondary" href="#">Cool stuff</a></li>
-              <li><a class="link-secondary" href="#">Cool stuff</a></li>
-              <li><a class="link-secondary" href="#">Cool stuff</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Links</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="link-secondary" href="#">Useful link</a></li>
-              <li><a class="link-secondary" href="#">Useful link</a></li>
-              <li><a class="link-secondary" href="#">Useful link</a></li>
-              <li><a class="link-secondary" href="#">Useful link</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Opportunities</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="link-secondary" href="#">Jobs</a></li>
-              <li><a class="link-secondary" href="#">Careers</a></li>
-              <li><a class="link-secondary" href="#">Internships</a></li>
-              <li><a class="link-secondary" href="#">Volunteer</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>About Us</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="link-secondary" href="#">Team</a></li>
-              <li><a class="link-secondary" href="#">Locations</a></li>
-              <li><a class="link-secondary" href="#">Privacy</a></li>
-              <li><a class="link-secondary" href="#">Terms</a></li>
-            </ul>
-          </div>
+            <div class="col-12 col-md">
+                <small class="d-block mb-3 text-muted">Copywright @2021-2031 Social Network</small>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Features</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="link-secondary" href="#">Cool stuff</a></li>
+                    <li><a class="link-secondary" href="#">Cool stuff</a></li>
+                    <li><a class="link-secondary" href="#">Cool stuff</a></li>
+                    <li><a class="link-secondary" href="#">Cool stuff</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Links</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="link-secondary" href="#">Useful link</a></li>
+                    <li><a class="link-secondary" href="#">Useful link</a></li>
+                    <li><a class="link-secondary" href="#">Useful link</a></li>
+                    <li><a class="link-secondary" href="#">Useful link</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Opportunities</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="link-secondary" href="#">Jobs</a></li>
+                    <li><a class="link-secondary" href="#">Careers</a></li>
+                    <li><a class="link-secondary" href="#">Internships</a></li>
+                    <li><a class="link-secondary" href="#">Volunteer</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>About Us</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="link-secondary" href="#">Team</a></li>
+                    <li><a class="link-secondary" href="#">Locations</a></li>
+                    <li><a class="link-secondary" href="#">Privacy</a></li>
+                    <li><a class="link-secondary" href="#">Terms</a></li>
+                </ul>
+            </div>
         </div>
-      </footer>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
