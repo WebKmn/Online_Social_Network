@@ -1,8 +1,8 @@
 function updateAnsView() {
-    var ddSequrityQuestion = document.getElementById("ddSequrityQuestion");
+    var ddSecurityQuestion = document.getElementById("ddSecurityQuestion");
     var divAnswer = document.getElementById("divAnswer");
 
-    if (ddSequrityQuestion.value != "") {
+    if (ddSecurityQuestion.value != "") {
         divAnswer.classList.remove("invisible");
     }
     else {
