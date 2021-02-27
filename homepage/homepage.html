@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Homepage</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary mb-4">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="images/logo2.jpg" alt="" width="30" height="24" class="d-inline-block align-top">
+                </a>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">Settings</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Action2</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container text-center top-buffer">
+        <div class="row">
+            <div class="col-sm-3 card">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Dummy</h3>
+                        <h5 class="text-muted">@Dummy</h3>
+                            <img src="images/avatar.jpg" class="rounded-circle center" height="100" width="100"
+                                alt="Avatar">
+                        <br>
+                            <p><a href='#' class="h4">My Profile</a></p>
+                    </div>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <p><a href='#' class="h4">Follower</a></p>
+                        <div class="h4">5</div>
+                    </li>
+                    <li class="list-group-item">
+                        <p><a href='#' class="h4">Following</a></p>
+                        <div class="h4">20</div>
+                    </li>
+                    <li class="list-group-item">
+                        <p><a href='#' class="h4">Notifications</a></p>
+                    </li>
+                    <li class="list-group-item">
+                        <p><a href='#' class="h4">Messages</a></p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-sm-6">
+
+                <div class="card">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab"
+                                    aria-controls="posts" aria-selected="true">Post</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="images-tab" data-toggle="tab" role="tab" aria-controls="images"
+                                    aria-selected="false" href="#images">Images</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="posts" role="tabpanel"
+                                aria-labelledby="posts-tab">
+                                <div class="form-group">
+                                    <label class="sr-only" for="message">post</label>
+                                    <textarea class="form-control" id="message" rows="3"
+                                        placeholder="What's new?"></textarea>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
+                                <div class="form-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label" for="customFile">Upload image</label>
+                                    </div>
+                                </div>
+                                <div class="py-4"></div>
+                            </div>
+                        </div>
+                        <div class="btn-toolbar justify-content-end">
+                            <div class="btn-group">
+                                <button type="submit" class="btn btn-primary">share</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-start">
+                            <div>
+                                <img class="rounded-circle" width="45" src="images/avatar.jpg" alt="">
+                            </div>
+                            <div>
+                                <div class="h5">@Dummy</div>
+                                <div class="h7 text-muted">Dummy</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="text-muted h7">10 min ago</div>
+                        <p class="card-text">
+                            Considered discovered ye sentiments projecting entreaties of melancholy is.
+                            In expression an solicitude principles in do. Hard do me sigh with west same
+                            lady. Their saved linen downs tears son add music. Expression alteration
+                            entreaties mrs can terminated estimating. Her too add narrow having wished.
+                            To things so denied admire. Am wound worth water he linen at vexed.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="card-link">Like</a>
+                        <a href="#" class="card-link">Comment</a>
+                        <a href="#" class="card-link">Share</a>
+                    </div>
+                </div>
+
+                <br>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-start">
+                            <div>
+                                <img class="rounded-circle" width="45" src="images/avatar.jpg" alt="">
+                            </div>
+                            <div>
+                                <div class="h5">@Dummy</div>
+                                <div class="h7 text-muted">Dummy</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="text-muted h7">20 min ago</div>
+                        <p class="card-text">
+                            Considered discovered ye sentiments projecting entreaties of melancholy is.
+                            In expression an solicitude principles in do. Hard do me sigh with west same
+                            lady. Their saved linen downs tears son add music. Expression alteration
+                            entreaties mrs can terminated estimating. Her too add narrow having wished.
+                            To things so denied admire. Am wound worth water he linen at vexed.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="card-link">Like</a>
+                        <a href="#" class="card-link">Comment</a>
+                        <a href="#" class="card-link">Share</a>
+                    </div>
+                </div>
+
+                <br>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-start">
+                            <div>
+                                <img class="rounded-circle" width="45" src="images/avatar.jpg" alt="">
+                            </div>
+                            <div>
+                                <div class="h5">@Dummy</div>
+                                <div class="h7 text-muted">Dummy</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="text-muted h7">2 hour ago</div>
+                        <p class="card-text">
+                            Considered discovered ye sentiments projecting entreaties of melancholy is.
+                            In expression an solicitude principles in do. Hard do me sigh with west same
+                            lady. Their saved linen downs tears son add music. Expression alteration
+                            entreaties mrs can terminated estimating. Her too add narrow having wished.
+                            To things so denied admire. Am wound worth water he linen at vexed.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="card-link">Like</a>
+                        <a href="#" class="card-link">Comment</a>
+                        <a href="#" class="card-link">Share</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <br>
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Trending hashtags</h5>
+                        <ul class="list-group">
+                            <ul class="list-unstyled text-small">
+                                <li class="list-group-item"><a class="link-secondary" href="#">1. #CSCI4800</a></li>
+                                <li class="list-group-item"><a class="link-secondary" href="#">2. #WebDev</a></li>
+                                <li class="list-group-item"><a class="link-secondary" href="#">3. #BootStrap</a></li>
+                                <li class="list-group-item"><a class="link-secondary" href="#">4. #JavaScript</a></li>
+                                <li class="list-group-item"><a class="link-secondary" href="#">5. #CSS</a></li>
+                                <li class="list-group-item"><a class="link-secondary" href="#">6. #2021</a></li>
+                                <li class="list-group-item"><a class="link-secondary" href="#">7. #Dota2</a></li>
+                                <li class="list-group-item"><a class="link-secondary" href="#">8. #WoWClassicTBC</a>
+                                </li>
+                                <li class="list-group-item"><a class="link-secondary" href="#">9. #Barca</a></li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <br>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Who to follow</h5>
+                        <ul class="list-group">
+                            <ul class="list-unstyled text-small">
+                                <li class="list-group-item">
+                                    <img src="images/avatar.jpg" class="rounded-circle" height="25" width="25">
+                                    <a class="link-secondary" href="#">@Dummy1</a>
+                                    <button type="button" class="btn btn-primary btn-sm">Follow</button>
+                                </li>
+                                <li class="list-group-item">
+                                    <img src="images/avatar.jpg" class="rounded-circle" height="25" width="25">
+                                    <a class="link-secondary" href="#">@Dummy2</a>
+                                    <button type="button" class="btn btn-primary btn-sm">Follow</button>
+                                </li>
+                                <li class="list-group-item">
+                                    <img src="images/avatar.jpg" class="rounded-circle" height="25" width="25">
+                                    <a class="link-secondary" href="#">@Dummy3</a>
+                                    <button type="button" class="btn btn-primary btn-sm">Follow</button>
+                                </li>
+                            </ul>
+                        </ul>
+                        <a class="link-secondary" href="#">Show more</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <br><br>
+
+        <footer class="container bg-light">
+            <div class="row">
+                <div class="col-12 col-md">
+                    <small class="d-block mb-3 text-muted">Copywright @2021-2031 Social Network</small>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Features</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="link-secondary" href="#">Cool stuff</a></li>
+                        <li><a class="link-secondary" href="#">Cool stuff</a></li>
+                        <li><a class="link-secondary" href="#">Cool stuff</a></li>
+                        <li><a class="link-secondary" href="#">Cool stuff</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="link-secondary" href="#">Useful link</a></li>
+                        <li><a class="link-secondary" href="#">Useful link</a></li>
+                        <li><a class="link-secondary" href="#">Useful link</a></li>
+                        <li><a class="link-secondary" href="#">Useful link</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Opportunities</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="link-secondary" href="#">Jobs</a></li>
+                        <li><a class="link-secondary" href="#">Careers</a></li>
+                        <li><a class="link-secondary" href="#">Internships</a></li>
+                        <li><a class="link-secondary" href="#">Volunteer</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>About Us</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="link-secondary" href="#">Team</a></li>
+                        <li><a class="link-secondary" href="#">Locations</a></li>
+                        <li><a class="link-secondary" href="#">Privacy</a></li>
+                        <li><a class="link-secondary" href="#">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+            crossorigin="anonymous"></script>
+        <script src="https://use.fontawesome.com/ba33e131da.js"></script>
+</body>
+
+</html>

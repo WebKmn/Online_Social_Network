@@ -1,0 +1,9 @@
+.top-buffer {
+    margin-top: 5%;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
