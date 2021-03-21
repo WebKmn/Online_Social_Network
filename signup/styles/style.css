@@ -3,8 +3,9 @@
 }
 
 .hasError{
-    background-color: yellow;
+    background-color: #ff8080;
 }
+
 .errorMessage{
     color: red;
 }
