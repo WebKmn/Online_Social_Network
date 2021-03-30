@@ -1,0 +1,27 @@
+<div class="container center-container margin-from-bottom">
+    <form action="/signin" method="POST" class="form-signin p-5 container text-center col-lg-5">
+        <h3 class="mb-3">Sign in to Ponyo</h3>
+        <div class="form-group">
+            <label for="txtEmail" class="form-label" hidden>Email:</label>
+            <input type="email" id="txtEmail" name="txtEmail" class="form-control" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+            <label for="txtPassword" class="form-label" hidden>Password:</label>
+            <input type="password" id="txtPassword" name="txtPassword" class="form-control" placeholder="Password"
+                required>
+        </div>
+
+        <div class="checkbox mb-3">
+            <label> <input type="checkbox" value="remember-me"> Remember Me</label>
+        </div>
+
+        <div class="mb-3">
+            <a href="#">Forgot Password?</a>
+        </div>
+
+        <div class="mb-3 form-group text-center">
+            <button type="submit" class="btn btn-primary">Sign-In</button>
+            <button type="reset" class="btn btn-secondary">Clear</button>
+        </div>
+    </form>
+</div>

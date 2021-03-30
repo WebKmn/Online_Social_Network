@@ -1,0 +1,27 @@
+{
+  "name": "online_social_network",
+  "version": "1.0.0",
+  "description": "Created three static html web pages for a social networking web app with styling done via bootstap and some css, javascript added for some minor form validation. A sign-up page with a form that a potential user will fill to create an account. A sign-in page that will act as the landing page, and a draft of a potential home page once the user signs in. The home page contains dummy data such as posts from other users, links to follow, and trending posts.",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebKmn/Online_Social_Network.git"
+  },
+  "author": "Xin Li and Web Kimoni", 
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WebKmn/Online_Social_Network/issues"
+  },
+  "homepage": "https://github.com/WebKmn/Online_Social_Network#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "http-status-codes": "^2.1.4",
+    "mongoose": "^5.12.2"
+  }
+}

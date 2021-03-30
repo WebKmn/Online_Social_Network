@@ -1,0 +1,104 @@
+<script src="js/script.js"></script>
+
+<div class="container data-form">
+
+    <form class="form-signup p-5 margin-from-bottom" onsubmit="return validateForm()" id="signupForm" action="/signup"
+        method="POST">
+        <fieldset class="bg-light p-5">
+            <h4 class="text-center alert alert-secondary">Sign Up to Ponyo</h4>
+
+            <div class="mb-3 form-group">
+                <label for="txtFirstName" class="form-label">First Name: </label>
+                <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" placeholder="John"
+                    required>
+            </div>
+
+            <div class="mb-3 form-group">
+                <label for="txtLastName" class="form-label">Last Name: </label>
+                <input type="text" class="form-control" id="txtLastName" name="txtLastName" placeholder="Doe" required>
+            </div>
+
+            <div class="mb-3 form-group">
+                <label for="txtUserName" class="form-label">Username: </label>
+                <input type="text" class="form-control" id="txtUserName" name="txtUserName" placeholder="JohnD21"
+                    required>
+            </div>
+
+            <div class="mb-3 form-group">
+                <label for="txtEmail" class="form-label">Email: </label>
+                <input type="email" class="form-control" id="txtEmail" name="txtEmail" placeholder="JohnDoe@example.com"
+                    required>
+            </div>
+
+            <div class="mb-3 form-group">
+                <label for="txtPassword" class="form-label">Password: </label>
+                <input type="password" class="form-control" id="txtPassword" name="txtPassword" required>
+            </div>
+
+            <div class="mb-3 form-group">
+                <label for="txtConfirmPass" class="form-label">Confirm Password: </label>
+                <input type="password" class="form-control" id="txtConfirmPass" name="txtConfirmPass" required>
+            </div>
+
+            <div class="mb-3 form-group">
+                <label for="txtLocation" class="form-label">Location (Optional): </label>
+                <input type="text" class="form-control" id="txtLocation" name="txtLocation" placeholder="United States">
+            </div>
+
+            <fieldset class="form-group">
+                <div class="row">
+                    <div class="col-sm-2 col-form-label">Gender (Optional):</div>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input type="radio" id="rbMale" name="gender" value="male" class="form-check-input">
+                            <label for="rbMale" class="form-check-label">Male</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="rbFemale" name="gender" value="female" class="form-check-input">
+                            <label for="rbFemale" class="form-check-label">Female</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="rbOther" name="gender" value="other" class="form-check-input">
+                            <label for="rbOther" class="form-check-label">Other</label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="mb-3 form-group">
+                <label for="txtDOB" class="form-label">Date of Birth:</label>
+                <input type="date" class="form-control" id="txtDOB" name="txtDOB" required>
+            </div>
+
+            <div class="mb-3 form-group">
+                <label for="ddSecurityQuestion" class="form-label">Security Question:</label>
+                <select id="ddSecurityQuestion" name="ddSecurityQuestion" class="form-control custom-select"
+                    onchange="updateAnsView()">
+                    <option>Choose a security question</option>
+                    <option>What city did you grow up in?</option>
+                    <option>What high school did you attend?</option>
+                    <option>What is the make of your first car?</option>
+                    <option>What is your favorite ice cream flavor?</option>
+                </select>
+            </div>
+
+            <div id="divAnswer" class="mb-3 form-group invisible">
+                <label for="txtAnswer" class="form-label">Security Question Answer:</label>
+                <input type="text" class="form-control" id="txtAnswer" name="txtAnswer">
+            </div>
+
+            <div class="form-group">
+                <label for="txtBio" class="form-label">Bio (Optional): </label>
+                <input type="text" id="txtBio" name="txtBio" class="form-control">
+            </div>
+
+            <div class="mb-3 form-group text-center">
+                <button type="submit" class="btn btn-primary">Sign-Up</button>
+                <button type="reset" class="btn btn-secondary">Reset Form</button>
+            </div>
+
+        </fieldset>
+
+    </form>
+
+</div>

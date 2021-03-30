@@ -1,0 +1,21 @@
+.invisible{
+    display: none;
+}
+
+.hasError{
+    background-color: #ff8080;
+}
+
+.errorMessage{
+    color: red;
+}
+
+.center-container {
+    margin: 0;
+    padding-top: 150px;
+  }
+
+.margin-from-bottom {
+    margin-bottom: 2 00px;
+    clear: both;
+ }
