@@ -1,8 +1,8 @@
 <script src="js/script.js"></script>
 
-<div class="container data-form">
+<div class="container data-form margin-from-bottom">
 
-    <form class="form-signup p-5 margin-from-bottom" onsubmit="return validateForm()" id="signupForm" action="/signup"
+    <form class="form-signup p-5" onsubmit="return validateForm()" id="signupForm" action="/signup"
         method="POST">
         <fieldset class="bg-light p-5">
             <h4 class="text-center alert alert-secondary">Sign Up to Ponyo</h4>
@@ -87,15 +87,22 @@
                 <input type="text" class="form-control" id="txtAnswer" name="txtAnswer">
             </div>
 
-            <div class="form-group">
+            <div class="mb-3 form-group">
                 <label for="txtBio" class="form-label">Bio (Optional): </label>
                 <input type="text" id="txtBio" name="txtBio" class="form-control">
+            </div>
+
+            <div class="mb-3 form-group errorMessage">
+                <% if (locals.signupErrorMessage) { %>
+                    <span><%= signupErrorMessage %></span>  
+                 <% } %>
             </div>
 
             <div class="mb-3 form-group text-center">
                 <button type="submit" class="btn btn-primary">Sign-Up</button>
                 <button type="reset" class="btn btn-secondary">Reset Form</button>
             </div>
+
 
         </fieldset>
 

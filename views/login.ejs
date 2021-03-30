@@ -1,5 +1,5 @@
 <div class="container center-container margin-from-bottom">
-    <form action="/signin" method="POST" class="form-signin p-5 container text-center col-lg-5">
+    <form class="form-signin p-5 container text-center col-lg-5" action="/login" method="POST">
         <h3 class="mb-3">Sign in to Ponyo</h3>
         <div class="form-group">
             <label for="txtEmail" class="form-label" hidden>Email:</label>
@@ -11,6 +11,12 @@
                 required>
         </div>
 
+        <div class="mb-3 form-group errorMessage">
+            <% if (locals.loginErrorMessage) { %>
+                <span><%= loginErrorMessage %></span>  
+             <% } %>
+        </div>
+
         <div class="checkbox mb-3">
             <label> <input type="checkbox" value="remember-me"> Remember Me</label>
         </div>
@@ -18,9 +24,12 @@
         <div class="mb-3">
             <a href="#">Forgot Password?</a>
         </div>
+        <div class="mb-3">
+            <a href="/signup">New to Ponyo? Sign up here!</a>
+        </div>
 
         <div class="mb-3 form-group text-center">
-            <button type="submit" class="btn btn-primary">Sign-In</button>
+            <button type="submit" class="btn btn-primary">Login</button>
             <button type="reset" class="btn btn-secondary">Clear</button>
         </div>
     </form>

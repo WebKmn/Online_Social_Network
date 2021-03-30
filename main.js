@@ -32,12 +32,13 @@ router.use(express.json());
 
 router.get("/", homeController.showLogin);
 
-router.get("/signup", homeController.showSignup);
+router.get("/signup", usersController.showSignup);
 router.post("/signup", usersController.create, usersController.redirectView);
 
-router.get("/home", homeController.showHome);
-router.get("/login", homeController.showLogin);
+router.get("/login", usersController.showLogin);
+router.post("/login", usersController.login, usersController.redirectView)
 
+router.get("/home", homeController.showHome);
 
 router.use(errorController.pageNotFoundError);
 router.use(errorController.internalServerError);
