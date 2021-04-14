@@ -16,6 +16,7 @@ const express = require("express"),
     layouts = require("express-ejs-layouts");
 
 const mongoose = require("mongoose");
+const postsController = require("./controllers/postsController");
 mongoose.connect("mongodb://localhost:27017/ponyo_db",
     { useNewUrlParser: true });
 mongoose.set("useCreateIndex", true);
@@ -67,6 +68,11 @@ router.use(expressValidator());
 
 router.get("/", homeController.showAboutPage);
 router.get("/about", homeController.showAboutPage);
+
+router.get("/home", postsController.index, usersController.index, homeController.showHome);
+
+router.post("/posts/create", postsController.create, postsController.redirectView);
+router.delete("/posts/:id/delete", postsController.delete, postsController.redirectView);
 
 router.get("/users", usersController.index, usersController.indexView);
 router.get("/users/new", usersController.new);

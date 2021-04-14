@@ -44,7 +44,6 @@ module.exports = {
         res.render("./users/new");
     },
     create: (req, res, next) => {
-
         if (!req.body.firstName || !req.body.lastName || !req.body.email || !req.body.username || !req.body.password
             || !req.body.confirmPass || !req.body.DOB || !req.body.securityQuestionAnswer) {
             req.flash("error", "One or more required field(s) is missing.");
