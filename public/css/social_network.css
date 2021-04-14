@@ -27,7 +27,7 @@
     text-align: center;
     padding: 10px 30px;
     position: absolute;
-    top: 80px;
+    top: 60px;
     z-index: 2;
   }
   
@@ -35,3 +35,9 @@
     color: #fff;
     background: rgba(209, 46, 42, 0.7);
   }
+
+  .centered {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
+}

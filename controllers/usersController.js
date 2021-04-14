@@ -47,11 +47,11 @@ module.exports = {
 
         if (!req.body.firstName || !req.body.lastName || !req.body.email || !req.body.username || !req.body.password
             || !req.body.confirmPass || !req.body.DOB || !req.body.securityQuestionAnswer) {
-            res.locals.signupErrorMessage = "One or more required field(s) is missing.";
+            req.flash("error", "One or more required field(s) is missing.");
             res.render("./users/new");
         }
         else if (req.body.password != req.body.confirmPass) {
-            res.locals.signupErrorMessage = "Passwords don't match.";
+            req.flash("error", "Passwords don't match.");
             res.render("./users/new");
         }
         else {
@@ -95,7 +95,7 @@ module.exports = {
     authenticate: passport.authenticate("local", {
         failureRedirect: "/users/login",
         failureFlash: "Login failed! Check your email or password",
-        successRedirect: "/",
+        successRedirect: "/home",
         successFlash: "Logged in!"
     }),
     logout: (req, res, next) => {
