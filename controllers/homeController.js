@@ -2,7 +2,7 @@
 
 module.exports = {
     showLogin: (req, res) => {
-        res.render("login");
+        res.render("./users/login");
     },
     showHome: (req, res) => {
         res.render("home");

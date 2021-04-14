@@ -1,48 +1,48 @@
-<script src="js/script.js"></script>
+<script src="/js/script.js"></script>
 
-<div class="container data-form margin-from-bottom">
+<div class="container data-form margin-from-bottom margin-from-top">
 
-    <form class="form-signup p-5" onsubmit="return validateForm()" id="signupForm" action="/signup"
+    <form class="form-signup p-5" onsubmit="return validateForm()" id="signupForm" action="<%= `/users/${user._id}/update?_method=PUT` %>"
         method="POST">
         <fieldset class="bg-light p-5">
-            <h4 class="text-center alert alert-secondary">Sign Up to Ponyo</h4>
+            <h4 class="text-center alert alert-secondary">Edit Profile</h4>
 
             <div class="mb-3 form-group">
                 <label for="txtFirstName" class="form-label">First Name: </label>
-                <input type="text" class="form-control" id="txtFirstName" name="txtFirstName" placeholder="John"
+                <input type="text" class="form-control" id="txtFirstName" name="firstName" placeholder="John" value="<%= user.name.first %>"
                     required>
             </div>
 
             <div class="mb-3 form-group">
                 <label for="txtLastName" class="form-label">Last Name: </label>
-                <input type="text" class="form-control" id="txtLastName" name="txtLastName" placeholder="Doe" required>
+                <input type="text" class="form-control" id="txtLastName" name="lastName" placeholder="Doe" value="<%= user.name.last %>" required>
             </div>
 
             <div class="mb-3 form-group">
                 <label for="txtUserName" class="form-label">Username: </label>
-                <input type="text" class="form-control" id="txtUserName" name="txtUserName" placeholder="JohnD21"
+                <input type="text" class="form-control" id="txtUserName" name="username" placeholder="JohnD21" value="<%= user.username %>"
                     required>
             </div>
 
             <div class="mb-3 form-group">
                 <label for="txtEmail" class="form-label">Email: </label>
-                <input type="email" class="form-control" id="txtEmail" name="txtEmail" placeholder="JohnDoe@example.com"
+                <input type="email" class="form-control" id="txtEmail" name="email" placeholder="JohnDoe@example.com" value="<%= user.email %>"
                     required>
             </div>
 
             <div class="mb-3 form-group">
                 <label for="txtPassword" class="form-label">Password: </label>
-                <input type="password" class="form-control" id="txtPassword" name="txtPassword" required>
+                <input type="password" class="form-control" id="txtPassword" name="password" value="<%= user.password %>" required>
             </div>
 
             <div class="mb-3 form-group">
                 <label for="txtConfirmPass" class="form-label">Confirm Password: </label>
-                <input type="password" class="form-control" id="txtConfirmPass" name="txtConfirmPass" required>
+                <input type="password" class="form-control" id="txtConfirmPass" name="confirmPass" required>
             </div>
 
             <div class="mb-3 form-group">
                 <label for="txtLocation" class="form-label">Location (Optional): </label>
-                <input type="text" class="form-control" id="txtLocation" name="txtLocation" placeholder="United States">
+                <input type="text" class="form-control" id="txtLocation" name="location" value="<%= user.location %>" placeholder="United States">
             </div>
 
             <fieldset class="form-group">
@@ -50,15 +50,15 @@
                     <div class="col-sm-2 col-form-label">Gender (Optional):</div>
                     <div class="col-sm-10">
                         <div class="form-check">
-                            <input type="radio" id="rbMale" name="gender" value="male" class="form-check-input">
+                            <input type="radio" id="rbMale" name="gender" value="Male" class="form-check-input">
                             <label for="rbMale" class="form-check-label">Male</label>
                         </div>
                         <div class="form-check">
-                            <input type="radio" id="rbFemale" name="gender" value="female" class="form-check-input">
+                            <input type="radio" id="rbFemale" name="gender" value="Female" class="form-check-input">
                             <label for="rbFemale" class="form-check-label">Female</label>
                         </div>
                         <div class="form-check">
-                            <input type="radio" id="rbOther" name="gender" value="other" class="form-check-input">
+                            <input type="radio" id="rbOther" name="gender" value="Other" class="form-check-input">
                             <label for="rbOther" class="form-check-label">Other</label>
                         </div>
                     </div>
@@ -67,12 +67,12 @@
 
             <div class="mb-3 form-group">
                 <label for="txtDOB" class="form-label">Date of Birth:</label>
-                <input type="date" class="form-control" id="txtDOB" name="txtDOB" required>
+                <input type="date" class="form-control" id="txtDOB" name="DOB" value="<%= user.DOB %>" required>
             </div>
 
             <div class="mb-3 form-group">
                 <label for="ddSecurityQuestion" class="form-label">Security Question:</label>
-                <select id="ddSecurityQuestion" name="ddSecurityQuestion" class="form-control custom-select"
+                <select id="ddSecurityQuestion" name="securityQuestion" class="form-control custom-select" value="<%= user.securityQuestion %>"
                     onchange="updateAnsView()">
                     <option>Choose a security question</option>
                     <option>What city did you grow up in?</option>
@@ -84,12 +84,12 @@
 
             <div id="divAnswer" class="mb-3 form-group invisible">
                 <label for="txtAnswer" class="form-label">Security Question Answer:</label>
-                <input type="text" class="form-control" id="txtAnswer" name="txtAnswer">
+                <input type="text" class="form-control" id="txtAnswer" name="securityQuestionAnswer">
             </div>
 
             <div class="mb-3 form-group">
                 <label for="txtBio" class="form-label">Bio (Optional): </label>
-                <input type="text" id="txtBio" name="txtBio" class="form-control">
+                <input type="text" id="txtBio" name="bio" class="form-control" value="<%= user.bio %>">
             </div>
 
             <div class="mb-3 form-group errorMessage">
@@ -99,7 +99,7 @@
             </div>
 
             <div class="mb-3 form-group text-center">
-                <button type="submit" class="btn btn-primary">Sign-Up</button>
+                <button type="submit" class="btn btn-primary">Save</button>
                 <button type="reset" class="btn btn-secondary">Reset Form</button>
             </div>
 

@@ -10,7 +10,7 @@
     color: red;
 }
 
-.center-container {
+.margin-from-top {
     margin: 0;
     padding-top: 150px;
   }
@@ -19,3 +19,19 @@
     margin-bottom: 200px;
     clear: both;
  }
+
+ .flash {
+    background: rgba(193, 255, 193, .7);
+    color: #625a56;
+    width: 100%;
+    text-align: center;
+    padding: 10px 30px;
+    position: absolute;
+    top: 80px;
+    z-index: 2;
+  }
+  
+  .error {
+    color: #fff;
+    background: rgba(209, 46, 42, 0.7);
+  }
