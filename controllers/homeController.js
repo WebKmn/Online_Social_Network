@@ -1,8 +1,8 @@
 "use strict";
 
 module.exports = {
-    showLogin: (req, res) => {
-        res.render("login");
+    showAboutPage: (req, res) => {
+        res.render("about");
     },
     showHome: (req, res) => {
         res.render("home");

@@ -1,7 +1,9 @@
-"use strict";
+const passportLocalMongoose = require("passport-local-mongoose");
 
 const mongoose = require("mongoose"),
-    userSchema = new mongoose.Schema({
+    { Schema } = require("mongoose"),
+    Post = require("./post"),
+    userSchema = new Schema({
         name: {
             first: {
                 type: String,
@@ -16,8 +18,7 @@ const mongoose = require("mongoose"),
         },
         username: {
             type: String,
-            required: true,
-            trim: true
+            required: true
         },
         email: {
             type: String,
@@ -27,10 +28,6 @@ const mongoose = require("mongoose"),
         },
         location: {
             type: String
-        },
-        password: {
-            type: String,
-            required: true
         },
         gender: {
             type: String
@@ -50,14 +47,25 @@ const mongoose = require("mongoose"),
         bio: {
             type: String
         },
+        numberOfPosts: {
+            type: Number,
+            default: 0
+        }
     },
         {
-            timestamps: true
+            timestamps: true,
+            toJSON: { virtuals: true }, 
+            toObject: { virtuals: true }
         }
-    );
+    )
 
 userSchema.virtual("fullName").get(function () {
     return `${this.name.first} ${this.name.last}`;
+});
+
+
+userSchema.plugin(passportLocalMongoose, {
+    usernameField: "email"
 });
 
 module.exports = mongoose.model("User", userSchema);

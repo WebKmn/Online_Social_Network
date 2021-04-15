@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="card-header">
+        <div class="d-flex justify-content-start">
+            <h6>New Post</h6>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <form action="/posts/create" method="POST" id="postForm">
+            <textarea class="form-control" rows="3" name="text" form="postForm" placeholder="What's new?"></textarea>
+            <input type="hidden" name="username" value=<%=currentUser.username %>>
+            <input type="hidden" name="fullName" value=<%=currentUser.fullName %>>
+            <input type="hidden" name="creator" value=<%=currentUser._id %>>
+            <div class="float-right">
+                <button type="submit" class="btn btn-primary">share</button>
+            </div>
+        </form>
+    </div>
+</div>
