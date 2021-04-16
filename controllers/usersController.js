@@ -44,17 +44,7 @@ module.exports = {
         res.render("./users/new");
     },
     create: (req, res, next) => {
-        if (!req.body.firstName || !req.body.lastName || !req.body.email || !req.body.username || !req.body.password
-            || !req.body.confirmPass || !req.body.DOB || !req.body.securityQuestionAnswer) {
-            req.flash("error", "One or more required field(s) is missing.");
-            res.render("./users/new");
-        }
-        else if (req.body.password != req.body.confirmPass) {
-            req.flash("error", "Passwords don't match.");
-            res.render("./users/new");
-        }
-        else {
-            if (req.skip) return next();
+        if (req.skip) return next();
 
             let userParams = getUserParams(req.body);
             let newUser = new User(userParams);
@@ -71,17 +61,31 @@ module.exports = {
                     next();
                 }
             });
-        }
     },
     validate: (req, res, next) => {
-
-        req.check("email", "Email is invalid").isEmail();
-        req.check("password", "Password cannot be empty").notEmpty();
+        let regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).*$/g;
+        let invalidChars = ['<', '>', '#', "-", "{", "}", "(", ")", "'", '"', '`'];
+        let pass = req.body.password;
+        
+        req.check("firstName").trim().not().isIn(invalidChars).withMessage("First Name contains Invalid Characters");
+        req.check("lastName").trim().not().isIn(invalidChars).withMessage("Last Name contains Invalid Characters");
+        req.check("username").trim().not().isIn(invalidChars).withMessage("Username contains Invalid Characters");
+        req.check("email", "Email is invalid").isEmail().not().isEmpty().normalizeEmail();
+        // or use isStrongPassword with options for password verification. 
+        req.check("password").notEmpty().withMessage("Password cannot be empty")
+            .matches(regex).withMessage("Password must have at least one capital letter, one small letter, and one number")
+            .trim();
+        req.check("confirmPass").equals(pass).withMessage("Passwords do not match");
+        req.check("location").trim().optional().not().isIn(invalidChars).withMessage("Location contains Invalid Characters");
+        req.check("gender").optional().isIn(["Male", "Female", "Other"]);
+        req.check("DOB").isBefore(toString(new Date())).withMessage("Invalid Date of Birth");
+        req.check("securityQuestionAnswer").trim().not().isIn(invalidChars).withMessage("Security Answer contains Invalid Characters");
+        req.check("bio").trim().optional().not().isIn(invalidChars).withMessage("Bio contains Invalid Characters");
 
         req.getValidationResult().then((error) => {
             if (!error.isEmpty()) {
                 let messages = error.array().map(e => e.msg);
-                req.flash("error", messages.join(" and "));
+                req.flash("error", messages);
                 req.skip = true;
                 res.locals.redirect = "/users/new";
                 next();

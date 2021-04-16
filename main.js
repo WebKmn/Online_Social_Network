@@ -65,7 +65,6 @@ router.use((req, res, next) => {
 
 router.use(expressValidator());
 
-
 router.get("/", homeController.showAboutPage);
 router.get("/about", homeController.showAboutPage);
 
