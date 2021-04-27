@@ -28,24 +28,27 @@
                             <li class="nav-item"><a class="nav-link"> Logged in as @<%= currentUser.username %></a></li>
                             <% if (currentUser){ %>
                                 <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
-                            <% }else{ %>
-                                <li class="nav-item"><a class="nav-link" href="/users/login">Home</a></li>
-                            <% } %>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                                    <li><a class="dropdown-item" href="<%= `/users/${currentUser._id}` %>">View Profile</a></li>
-                                    <li><a class="dropdown-item" href="<%= `/users/${currentUser._id}/edit` %>">Edit Profile</a></li>
-                                    
-                                </ul>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="/users/logout">Logout</a></li>
-                        <%} else { %>
-                            <li class="nav-item"><a class="nav-link" href="/users/login">Login</a></li>
-                        <% } %>
+                                <% }else{ %>
+                                    <li class="nav-item"><a class="nav-link" href="/users/login">Home</a></li>
+                                    <% } %>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" role="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                                                <li><a class="dropdown-item"
+                                                        href="<%= `/users/${currentUser._id}` %>">View Profile</a></li>
+                                                <li><a class="dropdown-item"
+                                                        href="<%= `/users/${currentUser._id}/edit` %>">Edit Profile</a>
+                                                </li>
 
-                        <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item"><a class="nav-link" href="/users/logout">Logout</a></li>
+                                        <%} else { %>
+                                            <li class="nav-item"><a class="nav-link" href="/users/login">Login</a></li>
+                                            <% } %>
+
+                                                <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
                     </ul>
                 </div>
             </div>
@@ -55,82 +58,84 @@
         </nav>
     </header>
 
-    <div class="flashes">
-        <% if(flashMessages){ %>
-            <% if(flashMessages.success) { %>
-                <div class="flash sucess">
-                    <%= flashMessages.success %>
-                </div>
-                <% } else if(flashMessages.error) { %>
-                    <div class="flash error">
-                        <ul> <% flashMessages.error.forEach( (message) => { %> 
+
+    <% if(flashMessages){ %>
+        <% if(flashMessages.success) { %>
+            <div class="flash success">
+                <%= flashMessages.success %>
+            </div>
+            <% } else if(flashMessages.error) { %>
+                <div class="flash error">
+                    <ul>
+                        <% flashMessages.error.forEach( (message)=> { %>
                             <li>
                                 <%= message %>
                             </li>
-                        </ul>
-                        <% }) %>
-                    </div>
+                    </ul>
+                    <% }) %>
+                </div>
+                <% } %>
                     <% } %>
-                        <% } %>
-    </div>
-
-    <%- body %>
 
 
-        <footer class="container bg-light">
-            <div class="row">
-                <div class="col-12 col-md">
-                    <small class="d-block mb-3 text-muted">Copyright @2021-2031 Ponyo</small>
-                </div>
-                <div class="col-6 col-md">
-                    <h5>Features</h5>
-                    <ul class="list-unstyled text-small">
-                        <li><a class="link-secondary" href="#">Cool stuff</a></li>
-                        <li><a class="link-secondary" href="#">Cool stuff</a></li>
-                        <li><a class="link-secondary" href="#">Cool stuff</a></li>
-                        <li><a class="link-secondary" href="#">Cool stuff</a></li>
-                    </ul>
-                </div>
-                <div class="col-6 col-md">
-                    <h5>Links</h5>
-                    <ul class="list-unstyled text-small">
-                        <li><a class="link-secondary" href="#">Useful link</a></li>
-                        <li><a class="link-secondary" href="#">Useful link</a></li>
-                        <li><a class="link-secondary" href="#">Useful link</a></li>
-                        <li><a class="link-secondary" href="#">Useful link</a></li>
-                    </ul>
-                </div>
-                <div class="col-6 col-md">
-                    <h5>Opportunities</h5>
-                    <ul class="list-unstyled text-small">
-                        <li><a class="link-secondary" href="#">Jobs</a></li>
-                        <li><a class="link-secondary" href="#">Careers</a></li>
-                        <li><a class="link-secondary" href="#">Internships</a></li>
-                        <li><a class="link-secondary" href="#">Volunteer</a></li>
-                    </ul>
-                </div>
-                <div class="col-6 col-md">
-                    <h5>About Us</h5>
-                    <ul class="list-unstyled text-small">
-                        <li><a class="link-secondary" href="#">Team</a></li>
-                        <li><a class="link-secondary" href="#">Locations</a></li>
-                        <li><a class="link-secondary" href="#">Privacy</a></li>
-                        <li><a class="link-secondary" href="#">Terms</a></li>
-                    </ul>
-                </div>
-            </div>
-        </footer>
+                        <%- body %>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <!-- JavaScript Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-            crossorigin="anonymous"></script>
+
+                            <footer class="container bg-light margin-from-element-on-top">
+                                <div class="row">
+                                    <div class="col-12 col-md">
+                                        <small class="d-block mb-3 text-muted">Copyright @2021-2031 Ponyo</small>
+                                    </div>
+                                    <div class="col-6 col-md">
+                                        <h5>Features</h5>
+                                        <ul class="list-unstyled text-small">
+                                            <li><a class="link-secondary" href="#">Cool stuff</a></li>
+                                            <li><a class="link-secondary" href="#">Cool stuff</a></li>
+                                            <li><a class="link-secondary" href="#">Cool stuff</a></li>
+                                            <li><a class="link-secondary" href="#">Cool stuff</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6 col-md">
+                                        <h5>Links</h5>
+                                        <ul class="list-unstyled text-small">
+                                            <li><a class="link-secondary" href="#">Useful link</a></li>
+                                            <li><a class="link-secondary" href="#">Useful link</a></li>
+                                            <li><a class="link-secondary" href="#">Useful link</a></li>
+                                            <li><a class="link-secondary" href="#">Useful link</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6 col-md">
+                                        <h5>Opportunities</h5>
+                                        <ul class="list-unstyled text-small">
+                                            <li><a class="link-secondary" href="#">Jobs</a></li>
+                                            <li><a class="link-secondary" href="#">Careers</a></li>
+                                            <li><a class="link-secondary" href="#">Internships</a></li>
+                                            <li><a class="link-secondary" href="#">Volunteer</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6 col-md">
+                                        <h5>About Us</h5>
+                                        <ul class="list-unstyled text-small">
+                                            <li><a class="link-secondary" href="#">Team</a></li>
+                                            <li><a class="link-secondary" href="#">Locations</a></li>
+                                            <li><a class="link-secondary" href="#">Privacy</a></li>
+                                            <li><a class="link-secondary" href="#">Terms</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </footer>
+
+                            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                                crossorigin="anonymous"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                                crossorigin="anonymous"></script>
+                            <!-- JavaScript Bundle with Popper -->
+                            <script
+                                src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+                                integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+                                crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -20,6 +20,10 @@
     clear: both;
  }
 
+ .margin-from-element-on-top {
+    margin-top: 150px;
+ }
+
  .flash {
     background: rgba(193, 255, 193, .7);
     color: #625a56;
