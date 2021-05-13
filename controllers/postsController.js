@@ -1,6 +1,5 @@
 "use strict";
 
-const post = require("../models/post");
 const Post = require("../models/post");
 const User = require("../models/user");
 
@@ -17,11 +16,29 @@ module.exports = {
             })
     },
     create: (req, res, next) => {
+        let regex = /(#[a-z\d-]+)/ig;
+        let postText = req.body.text;
+
+        let hashtags = postText.match(regex);
+        if (hashtags) {
+            //to lowercase
+            hashtags = hashtags.map(hashtag => hashtag.toLowerCase())
+            //get rid of hashtag
+            hashtags = hashtags.map(hashtag => hashtag.slice(1));
+            //get rid of duplicates
+            hashtags = [...new Set(hashtags)];
+        }
+
+
+        //add class for css styling
+        postText = postText.replace(/(^|\s)(#[a-z\d-]+)/ig, "$1<span class='hashtag'>$2</span>");
+
         let newPost = new Post({
-            text: req.body.text,
+            text: postText,
             username: req.body.username,
             fullName: req.body.fullName,
-            creator: req.body.creator
+            creator: req.body.creator,
+            hashtags: hashtags
         });
         Post.create(newPost)
             .then(post => {

@@ -54,15 +54,13 @@
                 <div class="card-body">
                     <h5 class="card-title">Trending hashtags</h5>
                     <ul class="list-unstyled text-small">
-                        <li class="list-group-item"><a class="link-secondary" href="#">1. #CSCI4800</a></li>
-                        <li class="list-group-item"><a class="link-secondary" href="#">2. #WebDev</a></li>
-                        <li class="list-group-item"><a class="link-secondary" href="#">3. #BootStrap</a></li>
-                        <li class="list-group-item"><a class="link-secondary" href="#">4. #JavaScript</a></li>
-                        <li class="list-group-item"><a class="link-secondary" href="#">5. #CSS</a></li>
-                        <li class="list-group-item"><a class="link-secondary" href="#">6. #2021</a></li>
-                        <li class="list-group-item"><a class="link-secondary" href="#">7. #Dota2</a></li>
-                        <li class="list-group-item"><a class="link-secondary" href="#">8. #WoWClassicTBC</a></li>
-                        <li class="list-group-item"><a class="link-secondary" href="#">9. #Barca</a></li>
+                        <% for(i = 1; i<=10; i++){ %>
+                                <% if (trending[i-1]) { %>
+                                    <li class="list-group-item"><a class="link-secondary" href="#">
+                                    <%= i %>. #<%= trending[i-1]._id.hashtag %>
+                                <% } %>
+                            </a></li>
+                        <% } %>
                     </ul>
                 </div>
             </div>
@@ -73,9 +71,11 @@
                     <h5 class="card-title">Who to follow</h5>
                     <ul class="list-unstyled text-small">
                         <% users.forEach(user=> { %>
-                            <li class="list-group-item">
-                                <a class="link-secondary" href="<%= `/users/${user._id}` %>">@<%= user.username %></a>
-                                <button type="button" class="btn btn-primary btn-sm">Follow</button>
+                            <% if (user.email != currentUser.email) { %> 
+                                <li class="list-group-item">
+                                    <a class="link-secondary" href="<%= `/users/${user._id}` %>">@<%= user.username %></a>
+                                    <button type="button" class="btn btn-primary btn-sm">Follow</button>
+                            <% } %>
                             </li>
                         <% }) %>
                     </ul>

@@ -13,6 +13,9 @@ const mongoose = require("mongoose"),
             type: String,
             required: true
         },
+        hashtags: {
+            type: [String]
+        },
         creator: { type: Schema.Types.ObjectId, ref: "User" }
     },
         {

@@ -50,7 +50,8 @@ const mongoose = require("mongoose"),
         numberOfPosts: {
             type: Number,
             default: 0
-        }
+        },
+        following: [{ type: Schema.Types.ObjectId, ref: "User" }]
     },
         {
             timestamps: true,

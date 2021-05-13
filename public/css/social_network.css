@@ -45,3 +45,7 @@
     left: 50%;
     transform: translate(-50%, 0);
 }
+
+.hashtag {
+  color: rgb(62, 98, 240);
+}

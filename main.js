@@ -68,7 +68,7 @@ router.use(expressValidator());
 router.get("/", homeController.showAboutPage);
 router.get("/about", homeController.showAboutPage);
 
-router.get("/home", postsController.index, usersController.index, homeController.showHome);
+router.get("/home", postsController.index, usersController.index, homeController.getTrendingHashtags, homeController.showHome);
 
 router.post("/posts/create", postsController.create, postsController.redirectView);
 router.delete("/posts/:id/delete", postsController.delete, postsController.redirectView);
