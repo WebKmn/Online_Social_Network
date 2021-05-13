@@ -78,7 +78,6 @@ module.exports = {
         req.check("confirmPass").equals(pass).withMessage("Passwords do not match");
         req.check("location").trim().optional().not().isIn(invalidChars).withMessage("Location contains Invalid Characters");
         req.check("gender").optional().isIn(["Male", "Female", "Other"]);
-        req.check("DOB").isBefore(toString(new Date())).withMessage("Invalid Date of Birth");
         req.check("securityQuestionAnswer").trim().not().isIn(invalidChars).withMessage("Security Answer contains Invalid Characters");
         req.check("bio").trim().optional().not().isIn(invalidChars).withMessage("Bio contains Invalid Characters");
 
