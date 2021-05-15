@@ -1,4 +1,5 @@
 <% posts.reverse().forEach(post=> { %>
+    <% if (currentUser.following.includes(post.creator) || post.creator.equals(currentUser._id)) { %>
     <div class="card">
         <div class="card-header">
             <div class="d-flex justify-content-start">
@@ -28,4 +29,5 @@
         </div>
     </div>
     <br>
+    <% } %>
 <% }) %>

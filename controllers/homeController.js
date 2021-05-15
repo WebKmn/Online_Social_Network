@@ -6,9 +6,6 @@ module.exports = {
     showAboutPage: (req, res) => {
         res.render("about");
     },
-    showHome: (req, res) => {
-        res.render("home");
-    },
     getTrendingHashtags: (req, res, next) => {
         Post.aggregate([
             { $match: { /* Query can go here, if you want to filter results. */ } }
@@ -20,11 +17,27 @@ module.exports = {
                     , count: { $sum: 1 } /* create a sum value */
                 }
             }
-        ], function (err, trendingHashtags) {
-            trendingHashtags.sort((a, b) => (a.count < b.count) ? 1 : -1);
+        ]).then(trending => {
+            trending.sort((a, b) => (a.count < b.count) ? 1 : -1);
             //console.log(trendingHashtags);
-            res.locals.trending = trendingHashtags;
+            res.locals.trending = trending;
             next();
-        });
-    }
+        })
+        .catch(error => {
+            console.log(`Error feting trending hashtags data: ${error.message}`);
+            next(error);
+        })
+    },
+    showHome: (req, res, next) => {
+        if(!res.locals.currentUser){
+            res.locals.redirect = "/users/login";
+            next();
+        }
+        res.render("home");
+    },
+    redirectView: (req, res, next) => {
+        let redirectPath = res.locals.redirect;
+        if (redirectPath) res.redirect(redirectPath);
+        else next();
+    },
 };

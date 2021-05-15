@@ -1,3 +1,5 @@
+"use strict"
+
 function updateAnsView() {
     var ddSecurityQuestion = document.getElementById("ddSecurityQuestion");
     var divAnswer = document.getElementById("divAnswer");
@@ -72,3 +74,44 @@ function validateForm() {
         }
     }
 }
+
+$(document).ready(() => {
+    $(document).on("click", ".follow-button", function(event) {
+        let $button = $(event.target),
+        userId = $button.data("id");
+        $.get(`/api/users/${userId}/follow`, (results = {}) => {
+            let data = results.data;
+            if (data && data.success) {
+                $button
+                    .text("Unfollow")
+                    .addClass("unfollow-button")
+                    .removeClass("follow-button")
+            } else {
+                $button
+                .text("Try again");
+            }
+        });
+    })
+})
+
+
+$(document).ready(() => {
+    $(document).on("click", ".unfollow-button", function(event) {
+        let $button = $(event.target),
+        userId = $button.data("id");
+        $.get(`/api/users/${userId}/unfollow`, (results = {}) => {
+            let data = results.data;
+            if (data && data.success) {
+                $button
+                    .text("Follow")
+                    .addClass("follow-button")
+                    .removeClass("unfollow-button")
+            } else {
+                $button
+                .text("Try again");
+            }
+        });
+    })
+})
+
+

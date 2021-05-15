@@ -3,6 +3,7 @@
 const passport = require("passport");
 
 const User = require("../models/user"),
+    httpStatus = require("http-status-codes"),
     getUserParams = body => {
         return {
             name: {
@@ -46,27 +47,27 @@ module.exports = {
     create: (req, res, next) => {
         if (req.skip) return next();
 
-            let userParams = getUserParams(req.body);
-            let newUser = new User(userParams);
+        let userParams = getUserParams(req.body);
+        let newUser = new User(userParams);
 
-            User.register(newUser, req.body.password, (error, user) => {
-                if (user) {
-                    req.flash("success", "User account successfully created!");
-                    res.locals.redirect = "/users/login";
-                    next();
-                }
-                else {
-                    req.flash("error", `Failed to create user account: ${error.message}`);
-                    res.locals.redirect = "/users/new";
-                    next();
-                }
-            });
+        User.register(newUser, req.body.password, (error, user) => {
+            if (user) {
+                req.flash("success", "User account successfully created!");
+                res.locals.redirect = "/users/login";
+                next();
+            }
+            else {
+                req.flash("error", `Failed to create user account: ${error.message}`);
+                res.locals.redirect = "/users/new";
+                next();
+            }
+        });
     },
     validate: (req, res, next) => {
         let regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).*$/g;
         let invalidChars = ['<', '>', '#', "-", "{", "}", "(", ")", "'", '"', '`'];
         let pass = req.body.password;
-        
+
         req.check("firstName").trim().not().isIn(invalidChars).withMessage("First Name contains Invalid Characters");
         req.check("lastName").trim().not().isIn(invalidChars).withMessage("Last Name contains Invalid Characters");
         req.check("username").trim().not().isIn(invalidChars).withMessage("Username contains Invalid Characters");
@@ -89,7 +90,7 @@ module.exports = {
                 res.locals.redirect = "/users/new";
                 next();
             }
-            else{
+            else {
                 next();
             }
         });
@@ -139,7 +140,7 @@ module.exports = {
             })
     },
     update: (req, res, next) => {
-        if(req.skip) return next();
+        if (req.skip) return next();
         let userId = req.params.id;
         let userParams = getUserParams(req.body);
         User.findByIdAndUpdate(userId, userParams)
@@ -164,5 +165,68 @@ module.exports = {
                 console.log(`Error fetching user by ID: ${error.message}`);
                 next(error);
             })
-    }
+    },
+    respondJSON: (req, res) => {
+        res.json({
+            status: httpStatus.OK,
+            data: res.locals
+        });
+    },
+    errorJSON: (error, req, res, next) => {
+        let errorObject;
+        if (error) {
+            errorObject = {
+                status: httpStatus.INTERNAL_SERVER_ERROR,
+                message: error.message
+            };
+        } else {
+            errorObject = {
+                status: httpStatus.OK,
+                message: "Unknown Error."
+            };
+        }
+        res.json(errorObject);
+    },
+    follow: (req, res, next) => {
+        let currentUser = res.locals.currentUser,
+            userId = req.params.id;
+        if (currentUser) {
+            User.findByIdAndUpdate(currentUser, {
+                $addToSet: {
+                    following: userId
+                }
+            })
+                .then(() => {
+                    res.locals.success = true;
+                    next();
+                })
+                .catch(error => {
+                    next(error);
+                })
+        }
+        else {
+            next(new Error("User must log in"));
+        }
+    },
+    unfollow: (req, res, next) => {
+        let currentUser = res.locals.currentUser,
+            userId = req.params.id;
+        if (currentUser) {
+            User.findByIdAndUpdate(currentUser, {
+                $pull: {
+                    following: userId
+                }
+            })
+                .then(() => {
+                    res.locals.success = true;
+                    next();
+                })
+                .catch(error => {
+                    next(error);
+                })
+        }
+        else {
+            next(new Error("User must log in"));
+        }
+    },
 }

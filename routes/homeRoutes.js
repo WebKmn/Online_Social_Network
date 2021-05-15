@@ -3,10 +3,10 @@ const router = require("express").Router(),
     postsController = require("../controllers/postsController"),
     homeController = require("../controllers/homeController");
 
+router.get("/", homeController.showAboutPage);
 router.get("/about", homeController.showAboutPage);
 
-router.get("/home", postsController.index, usersController.index, homeController.getTrendingHashtags, homeController.showHome);
+router.get("/home", postsController.index, usersController.index, homeController.getTrendingHashtags, homeController.showHome, homeController.redirectView);
 
-router.get("/", homeController.showAboutPage);
 
 module.exports = router;
