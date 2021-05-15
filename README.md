@@ -1,4 +1,6 @@
-# [Ponyo&Totoro](https://ponyoandtotoro.herokuapp.com/)
+# Ponyo&Totoro
+[Link to Website](https://ponyoandtotoro.herokuapp.com/)
+[Link to Video Demo](https://www.youtube.com/watch?v=OE0F6n4XxCk)
 
 # Project Description
 This is a social networking web app similar to Twitter, but much more simplified since it is an academic project. It supports the most basic functionalities for a social networking site such as signing up, creating textual posts, and following other users. An user can see posts posted by users they follow, and they can also unfollow others. Hashtags are also supported and users can see what the most popular hashtags are. There is also a fully functional header that helps users navigate and modify their profiles if needed.
