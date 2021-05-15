@@ -30,11 +30,11 @@ var users = [
     securityQuestionAnswer: "Vermont"
   },
   {
-    name: { first: "Joe", last: "Doe" },
-    username: "Joe10000",
-    email: "joe@gmail.com",
-    password: "Joe123",
-    DOB: "2000-05-20",
+    name: { first: "Jimbo", last: "He" },
+    username: "JimboHe",
+    email: "jimbo@gmail.com",
+    password: "Aa123",
+    DOB: "1995-05-20",
     securityQuestion: "What city did you grow up in?",
     securityQuestionAnswer: "LA"
   },

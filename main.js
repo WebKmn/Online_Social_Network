@@ -3,6 +3,7 @@
 const express = require("express"),
     app = express(),
     router = require("./routes/index"),
+    errorController = require("./controllers/errorController"),
     methodOverride = require("method-override"),
     passport = require("passport"),
     cookieParser = require("cookie-parser"),
@@ -63,6 +64,8 @@ app.use((req, res, next) => {
 app.use(expressValidator());
 
 app.use("/", router);
+app.use(errorController.pageNotFoundError);
+app.use(errorController.internalServerError);
 
 app.listen(app.get("port"), () => {
     console.log(`Server is running on port: ${app.get("port")}`);
