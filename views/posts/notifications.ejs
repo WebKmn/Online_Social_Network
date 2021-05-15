@@ -1,0 +1,35 @@
+<div class="container margin-from-top margin-from-bottom">
+<% if(!newPosts.length) { %>
+    <div>
+        <h2>Looks like there is no new post that you haven't seen yet...</h2>
+    </div>
+<% } else { %>
+    <div>
+        <h2>New posts from users you follow:</h2>
+    </div>
+    <br>
+    <% newPosts.reverse().forEach(post=> { %>
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-start">
+                    <div>
+                        <span class="h5 text-muted"><%= post.fullName %></span>
+                        <span class="h7 text-muted">@<%= post.username %></span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    <%- post.text %>
+                </p>
+            </div>
+            <div class="card-footer">
+                <a href="#" class="card-link">Like</a>
+                <a href="#" class="card-link">Comment</a>
+                <a href="#" class="card-link">Share</a>
+            </div>
+        </div>
+        <br>
+    <% }) %>
+<% } %>
+</div>

@@ -1,5 +1,6 @@
 "use strict";
 
+const { render } = require("ejs");
 const Post = require("../models/post");
 const User = require("../models/user");
 
@@ -76,5 +77,30 @@ module.exports = {
         let redirectPath = res.locals.redirect;
         if (redirectPath) res.redirect(redirectPath);
         else next();
+    },
+    notifications: (req, res) => {
+        let posts = res.locals.posts,
+            currentUser = res.locals.currentUser,
+            newPosts = [];
+        
+        posts.forEach(post => {
+            if (!currentUser.haveSeen.includes(post._id) && currentUser.following.includes(post.creator)){
+                newPosts.push(post);
+                User.findByIdAndUpdate(currentUser, {
+                    $addToSet: {
+                        haveSeen: post._id
+                    }
+                })
+                .then(() => {
+                    console.log("Successfully added to haveSeen");
+                })
+                .catch(error => {
+                    next(error);
+                })
+            };
+        });
+
+        res.locals.newPosts = newPosts;
+        res.render("./posts/notifications");
     }
 }

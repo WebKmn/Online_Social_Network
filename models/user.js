@@ -51,7 +51,8 @@ const mongoose = require("mongoose"),
             type: Number,
             default: 0
         },
-        following: [{ type: Schema.Types.ObjectId, ref: "User" }]
+        following: [{ type: Schema.Types.ObjectId, ref: "User" }],
+        haveSeen: [{ type: Schema.Types.ObjectId, ref: "Post" }]
     },
         {
             timestamps: true,
